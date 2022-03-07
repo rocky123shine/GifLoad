@@ -115,7 +115,7 @@ Java_com_rocky_gifload_GifLoad_loadGif(JNIEnv *env, jclass clazz, jstring _path)
     int Error;
     //返回值就是native 对应的内存的地址
     GifFileType *gifFileType = DGifOpenFileName(path, &Error);
-    //if (Error == 0) {//打开成功
+    //if (Error == 0) {//打开成功   我尝试使用等于0判断成功失败 发现第一次走这 并不是0 所以直接判断0为成功
         //初始化缓冲区  数组 SaveImages
         DGifSlurp(gifFileType);
         //这个参数 类似于message中的obj 可以携带任何数据类型

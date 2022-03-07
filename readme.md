@@ -28,3 +28,16 @@
         4. 更新帧的索引 注意 越界的问题
 
         5. 使用 handler 循环播放gif的每一帧
+
+- 使用
+  
+      ```
+  
+         Bitmap.Config config = Bitmap.Config.ARGB_8888;
+         File file=new File(Environment.getExternalStorageDirectory(),"demo.gif");
+
+         GifLoad.load(file.getAbsolutePath())
+                .config(config)
+                .into(binding.image);
+  
+      ```
