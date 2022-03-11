@@ -30,14 +30,20 @@
         5. 使用 handler 循环播放gif的每一帧
 
 - 使用
-  
+
       ```
-  
+
          Bitmap.Config config = Bitmap.Config.ARGB_8888;
          File file=new File(Environment.getExternalStorageDirectory(),"demo.gif");
 
          GifLoad.load(file.getAbsolutePath())
                 .config(config)
                 .into(binding.image);
-  
+
       ```
+
+## libjpeg-turbo
+
+    这个库是 Skia渲染引擎的基础 
+    现在原生系统都是使用的skia渲染的  在7.0之前是默认关闭的哈夫曼压缩的 使用的是质量压缩
+    本次目的是直接跳过skia 使用jpeg库 开启哈夫曼压缩 

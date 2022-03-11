@@ -1,0 +1,5 @@
+/Users/jake/Desktop/android/code/study/cmake_study/demo2/build/CMakeFiles/edit_cache.dir
+/Users/jake/Desktop/android/code/study/cmake_study/demo2/build/CMakeFiles/rebuild_cache.dir
+/Users/jake/Desktop/android/code/study/cmake_study/demo2/build/src/CMakeFiles/hello.dir
+/Users/jake/Desktop/android/code/study/cmake_study/demo2/build/src/CMakeFiles/edit_cache.dir
+/Users/jake/Desktop/android/code/study/cmake_study/demo2/build/src/CMakeFiles/rebuild_cache.dir

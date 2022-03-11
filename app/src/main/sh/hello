@@ -1,0 +1,149 @@
+#!/bin/zsh
+echo 'hello world!!!!!'
+echo "系统变量-------------"
+echo '单引号只是字符长 如果使用字符串木板 需要双引号'
+echo "HOME------>$HOME"
+echo "USER------>${USER}"
+echo "PWD------->${PWD}"
+
+echo '位置参数变量--------------'
+
+echo "$0-------${0}"
+echo "$1-------${10}"
+echo "$2-------${2}"
+
+echo 参数个数=$#
+
+echo 预定义变量----------
+echo "PID 进程号--->$$"
+echo "最后执行的PID 进程号--->$!"
+echo "最后一次执行的状态 $?"
+echo '运算符-----------'
+echo '方式一'
+echo $(((2 + 3) *4))
+echo '方式二'
+echo $[(2+3)*4]
+
+echo "使用 expr"
+
+TEMP=`expr 2 + 3`
+echo ` expr $TEMP \* 4`
+
+echo '条件判断--------'
+echo 'if then --------'
+if [ "test1" = "test" ];
+then
+    echo 相等
+elif [ "test1" != "test" ]; then
+    echo 不等
+fi
+
+echo 'case 分支--------'
+
+case $1 in
+"1")
+  echo 周一
+  ;;
+2)
+  echo 周二
+  ;;
+
+"3")
+  echo 周三
+  ;;
+
+"4")
+  echo 周四
+  ;;
+
+"5")
+  echo 周五
+  ;;
+
+"6")
+  echo 周6
+  ;;
+
+"7")
+  echo 周日
+  ;;
+*)
+  echo 输入数字有误
+esac
+
+echo 'for 循环 -------'
+
+for i in {1..5} ; do
+    echo $i
+done
+
+for (( i = 0; i < 5; i++ )); do
+    echo $i
+done
+echo '测试* 和 @ 的在参数中的区别'
+
+# shellcheck disable=SC2066
+for i in "$*" ; do
+    echo $i
+done
+for i in "$@" ; do
+    echo $i
+done
+
+echo '输出1到100的和'
+SUM=0
+for (( i = 1; i <= 100; i++ )); do
+    SUM=$[($SUM + $i)]
+done
+echo $SUM
+
+
+echo ' while 循环-----------'
+
+
+SUM=0
+i=0
+while [ $i -le $1 ]; do
+    SUM=$[($SUM + $i)]
+    i=$[$i+1]
+done
+echo $SUM
+
+echo '自定义函数--------'
+
+function getSum(){
+    SUM=$[$n1 + $n2]
+    echo "sum=$SUM"
+}
+
+#read n1
+#read n2
+#
+## 调用 getSum 函数
+#getSum $n1 $n2
+
+
+#if [ "$#" -lt 1 ]; then
+#    echo 没有输入参数
+#
+#else
+#  echo 输入的参数是$*
+#
+#fi
+
+
+if [ "$#" -lt 1 ]; then # 参数个数小与1 默认
+
+  THE_ARCH=armv7
+
+else
+  echo $1
+	THE_ARCH=$(tr A-Z a-z <<< "$1")  # 大写字幕替换成小写字母
+
+fi
+
+echo $THE_ARCH
+NOW_DIR=$(cd `dirname $0`; pwd )
+echo XXXXXXX---- $NOW_DIR
+
+
